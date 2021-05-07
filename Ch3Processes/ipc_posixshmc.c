@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
   ptr = mmap(0, size, PROT_READ, MAP_SHARED, shm_fd, 0);
 
   // read from the shared memory object
-  printf("%s", (char *)ptr);
+  printf("%s\n", (char *)ptr);
 
   // remove the shared memory object
   shm_unlink(name);
