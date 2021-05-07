@@ -11,6 +11,8 @@ main=main
 #$(main):$(MAIN_PATH)/syscall_cpfile.o 
 #  $(CC) $^ $(LIBS) -o $@
 
+all:syscall_cpfile
+
 syscall_cpfile:$(MAIN_PATH)/syscall_cpfile.o 
 #  $(CC) $^ $(LIBS) -o $@
 
