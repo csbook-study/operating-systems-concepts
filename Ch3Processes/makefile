@@ -11,7 +11,7 @@ main=main
 #$(main):$(MAIN_PATH)/processes_fork.o 
 #  $(CC) $^ $(LIBS) -o $@
 
-all:processes_fork ipc_posixshmp ipc_posixshmc ipc_pipe ipc_fifop ipc_fifoc
+all:processes_fork ipc_posixshmp ipc_posixshmc ipc_pipe ipc_fifop ipc_fifoc processes_forkalgo
 
 processes_fork:$(MAIN_PATH)/processes_fork.o 
 	$(CC) $^ $(LIBS) -o $@
@@ -31,11 +31,14 @@ ipc_fifop:$(MAIN_PATH)/ipc_fifop.o
 ipc_fifoc:$(MAIN_PATH)/ipc_fifoc.o 
 	$(CC) $^ $(LIBS) -o $@
 
+processes_forkalgo:$(MAIN_PATH)/processes_forkalgo.o 
+	$(CC) $^ $(LIBS) -o $@
+
 %.o:%.c
 	$(CC) -c $< -o $@ $(CPPFLAGS) $(CFLAGS)
 
 clean:
-	-rm -rf *.o $(main) processes_fork ipc_posixshmp ipc_posixshmc ipc_pipe ipc_fifop ipc_fifoc
+	-rm -rf *.o $(main) processes_fork ipc_posixshmp ipc_posixshmc ipc_pipe ipc_fifop ipc_fifoc processes_forkalgo
 
 format:
   $(shell clang-format -style=google -i *.c)
